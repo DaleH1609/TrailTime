@@ -1,20 +1,23 @@
 import { v4 } from "uuid";
+import { trailMemStore } from "./trail-mem-store.js";
 
 let traillists = [];
 
-export const TraillistMemStore = {
-  async getAllTrailli() {
+export const traillistMemStore = {
+  async getAllTrailLists() {
     return traillists;
   },
 
-  async addTraillist(traillist) {
+  async addTrailList(traillist) {
     traillist._id = v4();
     traillists.push(traillist);
-    return playlist;
+    return traillist;
   },
 
-  async getTraillistId(id) {
-    return traillists.find((traillist) => traillist._id === id);
+  async getTraillistById(id) {
+    const list = traillists.find((traillist) => traillist._id === id);
+    list.trails = await trailMemStore.getTrailsByTrailListId(list._id);
+    return list;
   },
 
   async deleteTraillistById(id) {
