@@ -12,6 +12,14 @@ export const trailListController = {
     },
   },
 
+  deleteTrail: {
+    handler: async function(request, h) {
+      const traillist = await db.traillistStore.getTraillistById(request.params.id);
+      await db.trailStore.deleteTrail(request.params.trailid);
+      return h.redirect(`/traillist/${traillist._id}`);
+    },
+  },
+
   addTrail: {
     handler: async function (request, h) {
       const traillist = await db.traillistStore.getTraillistById(request.params.id);

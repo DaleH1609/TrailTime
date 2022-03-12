@@ -8,6 +8,10 @@ export const traillistMemStore = {
     return traillists;
   },
 
+  async getUserTrailLists(userid) {
+    return traillists.filter((traillist) => traillist.userid === userid);
+  },
+
   async addTrailList(traillist) {
     traillist._id = v4();
     traillists.push(traillist);
