@@ -4,7 +4,7 @@ export const dashboardController = {
   index: {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
-      const traillist = await db.traillistStore.getAllTrailLists();
+      const traillist = await db.traillistStore.getAllTraillists();
       const viewData = {
         title: "Trail Time Dashboard",
         user: loggedInUser,
@@ -29,7 +29,7 @@ export const dashboardController = {
         userid: loggedInUser._id,
         title: request.payload.title,
       };
-      await db.traillistStore.addTrailList(newTrailList);
+      await db.traillistStore.addTraillist(newTrailList);
       return h.redirect("/dashboard");
     },
   },
