@@ -6,3 +6,18 @@ export const UserSpec = {
   email: Joi.string().email().required(),
   password: Joi.string().required(),
 };
+
+export const UserCredentialsSpec = {
+  email: Joi.string().email().required(),
+  password: Joi.string().required(),
+};
+
+export const TrailSpec = {
+  title: Joi.string().required(),
+  location: Joi.string().required(),
+  type: Joi.string().required(),
+};
+
+export const TraillistSpec = {
+  title: Joi.string().required(),
+};
