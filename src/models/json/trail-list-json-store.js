@@ -22,10 +22,14 @@ export const traillistJsonStore = {
 
   async getTraillistById(id) {
     await db.read();
-    const list = db.data.traillists.find((traillist) => traillist._id === id);
-    list.trails = await trailJsonStore.getTrailsByTraillistId(list._id);
-    return list;
-  },
+    let list = db.data.traillists.find((traillist) => traillist._id === id);
+    if (list) {
+        list.trails = await trailJsonStore.getTrailsByTraillistId(list._id);
+      } else {
+        list = null;
+      }
+      return list;
+    },
 
   async getUserTraillists(userid) {
     await db.read();
@@ -35,7 +39,7 @@ export const traillistJsonStore = {
   async deleteTraillistById(id) {
     await db.read();
     const index = db.data.traillists.findIndex((traillist) => traillist._id === id);
-    db.data.traillists.splice(index, 1);
+    if (index !== -1) db.data.traillists.splice(index, 1);
     await db.write();
   },
 

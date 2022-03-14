@@ -8,7 +8,7 @@ export const traillistMemStore = {
     return traillists;
   },
 
-  async getUserTrailLists(userid) {
+  async getUserTraillists(userid) {
     return traillists.filter((traillist) => traillist.userid === userid);
   },
 
@@ -20,14 +20,17 @@ export const traillistMemStore = {
 
   async getTraillistById(id) {
     const list = traillists.find((traillist) => traillist._id === id);
-    list.trails = await trailMemStore.getTrailsByTrailListId(list._id);
-    return list;
+    if (list) {
+      list.trails = await trailMemStore.getTrailsByTrailListId(list._id);
+      return list;
+    }
+    return null;
   },
 
   async deleteTraillistById(id) {
     const index = traillists.findIndex((traillist) => traillist._id === id);
-    traillists.splice(index, 1);
-  },
+    if (index !== -1) traillists.splice(index, 1);
+  }, 
 
   async deleteAllTraillists() {
     traillists = [];

@@ -42,10 +42,12 @@ export const trailJsonStore = {
     await db.write();
   },
 
-  async updateTrail(trail, updatedtrail) {
-    trail.title = updatedtrail.title;
-    trail.location = updatedtrail.location;
-    trail.type = updatedtrail.type;
+  async updateTrail(trail, updatedTrail) {
+    trail.title = updatedTrail.title;
+    trail.location = updatedTrail.location;
+    trail.type = updatedTrail.type;
+    trail.latitude = updatedTrail.latitude;
+    trail.longitude = updatedTrail.longitude;
     await db.write();
   },
 }; 

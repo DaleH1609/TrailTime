@@ -33,8 +33,10 @@ export const trailListController = {
       const traillist = await db.traillistStore.getTraillistById(request.params.id);
       const newTrail = {
         title: request.payload.title,
-        location: request.payload.locaion,
+        location: request.payload.location,
         type: request.payload.type,
+        latitude: Number(request.payload.latitude),
+        longitude: Number(request.payload.longitude),
       };
       await db.trailStore.addTrail(traillist._id, newTrail);
       return h.redirect(`/traillist/${traillist._id}`);

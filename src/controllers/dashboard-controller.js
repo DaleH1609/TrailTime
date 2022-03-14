@@ -5,11 +5,11 @@ export const dashboardController = {
   index: {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
-      const traillist = await db.traillistStore.getAllTraillists();
+      const traillists = await db.traillistStore.getUserTraillists(loggedInUser._id);
       const viewData = {
         title: "Trail Time Dashboard",
         user: loggedInUser,
-        traillist: traillist,
+        traillists: traillists,
       };
       return h.view("dashboard-view", viewData);
     },

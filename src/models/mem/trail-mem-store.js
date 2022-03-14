@@ -26,7 +26,7 @@ export const trailMemStore = {
     return trails.filter((trail) => trail.trailListid === trailListId);
   },
 
-  async deleteTrail(id) {
+  async deleteTrailList(id) {
     const index = trails.findIndex((trail) => trail._id === id);
     trails.splice(index, 1);
   },
@@ -39,5 +39,7 @@ export const trailMemStore = {
     trail.title = updatedTrail.title;
     trail.location = updatedTrail.location;
     trail.type = updatedTrail.type;
+    trail.latitude = updatedLatitude.latitude;
+    trail.longitude = updatedLongitude.longitude;
   },
 };

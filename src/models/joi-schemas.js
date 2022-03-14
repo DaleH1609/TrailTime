@@ -16,6 +16,8 @@ export const TrailSpec = {
   title: Joi.string().required(),
   location: Joi.string().required(),
   type: Joi.string().required(),
+  latitude: Joi.number().allow("").optional(),
+  longitude: Joi.number().allow("").optional(),
 };
 
 export const TraillistSpec = {
