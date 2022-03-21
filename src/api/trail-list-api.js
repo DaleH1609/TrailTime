@@ -1,5 +1,7 @@
 import Boom from "@hapi/boom";
+import { IdSpec, TraillistArraySpec, TraillistSpec, TraillistSpecPlus } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
+import { validationError } from "./logger.js";
 
 export const traillistApi = {
     find: {
@@ -11,8 +13,12 @@ export const traillistApi = {
           } catch (err) {
             return Boom.serverUnavailable("Database Error");
           }
-        },
       },
+      tags: ["api"],
+      response: { schema: TraillistArraySpec, failAction: validationError },
+      description: "Get all Traillists",
+      notes: "Returns all Traillists",
+    },
 
   findOne: {
     auth: false,
@@ -27,7 +33,13 @@ export const traillistApi = {
         return Boom.serverUnavailable("No Traillist with this id");
       }
     },
+    tags: ["api"],
+    description: "Find a Traillist",
+    notes: "Returns a Traillist",
+    validate: { params: { id: IdSpec }, failAction: validationError },
+    response: { schema: TraillistSpecPlus, failAction: validationError },
   },
+
 
   create: {
     auth: false,
@@ -43,6 +55,11 @@ export const traillistApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    description: "Create a Traillist",
+    notes: "Returns the newly created traillist",
+    validate: { payload: TraillistSpec, failAction: validationError },
+    response: { schema: TraillistSpecPlus, failAction: validationError },
   },
 
   deleteOne: {
@@ -59,6 +76,9 @@ export const traillistApi = {
         return Boom.serverUnavailable("No trail list with this id");
       }
     },
+    tags: ["api"],
+    description: "Delete a traillist",
+    validate: { params: { id: IdSpec }, failAction: validationError },
   },
 
   deleteAll: {
@@ -71,6 +91,7 @@ export const traillistApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    description: "Delete all TraillistApi",
   },
-
 };
