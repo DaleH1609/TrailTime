@@ -49,4 +49,29 @@ export const trailtimeService = {
     const res = await axios.get(`${this.trailtimeUrl}/api/traillists/${id}`);
     return res.data;
   },
+
+  async getAllTrails() {
+    const res = await axios.get(`${this.trailtimeUrl}/api/trails`);
+    return res.data;
+  },
+
+  async createTrail(id, trail) {
+    const res = await axios.post(`${this.trailtimeUrl}/api/traillists/${id}/trails`, trail);
+    return res.data;
+  },
+
+  async deleteAllTrails() {
+    const res = await axios.delete(`${this.trailtimeUrl}/api/trails`);
+    return res.data;
+  },
+
+  async getTrail(id) {
+    const res = await axios.get(`${this.trailtimeUrl}/api/trails/${id}`);
+    return res.data;
+  },
+
+  async deleteTrail(id) {
+    const res = await axios.delete(`${this.trailtimeUrl}/api/trails/${id}`);
+    return res.data;
+  },
 };
