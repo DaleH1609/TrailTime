@@ -8,12 +8,14 @@ export const apiRoutes = [
     { method: "DELETE", path: "/api/users", config: userApi.deleteAll },
     { method: "GET", path: "/api/users/{id}", config: userApi.findOne },
 
+    { method: "POST", path: "/api/users/authenticate", config: userApi.authenticate },
+
     { method: "POST", path: "/api/traillists", config: traillistApi.create },
     { method: "DELETE", path: "/api/traillists", config: traillistApi.deleteAll },
     { method: "GET", path: "/api/traillists", config: traillistApi.find },
     { method: "GET", path: "/api/traillists/{id}", config: traillistApi.findOne },
     { method: "DELETE", path: "/api/traillists/{id}", config: traillistApi.deleteOne },
-
+    
     { method: "GET", path: "/api/trails", config: trailApi.find },
     { method: "GET", path: "/api/trails/{id}", config: trailApi.findOne },
     { method: "POST", path: "/api/traillists/{id}/trails", config: trailApi.create },

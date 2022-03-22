@@ -45,7 +45,7 @@ export const TrailSpec = Joi.object()
     userid: IdSpec,
     trails: TrailArraySpec,
   })
-  .label("Playlist");
+  .label("Trail list");
 
   export const TraillistSpecPlus = TraillistSpec.keys({
     _id: IdSpec,
