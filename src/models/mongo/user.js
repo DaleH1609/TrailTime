@@ -1,4 +1,6 @@
 import Mongoose from "mongoose";
+import Boom from "@hapi/boom";
+
 const { Schema } = Mongoose;
 
 const userSchema = new Schema({

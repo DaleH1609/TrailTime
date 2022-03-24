@@ -2,6 +2,7 @@ import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { aboutController } from "./controllers/about-controller.js";
 import { trailListController } from "./controllers/trail-list-controller.js";
+import { adminController } from "./controllers/admin-controller.js";
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -12,6 +13,9 @@ export const webRoutes = [
   { method: "POST", path: "/authenticate", config: accountsController.login },
 
   { method: "GET", path: "/about", config: aboutController.index },
+
+  { method: "GET", path: "/admin", config: adminController.index },
+  { method: "GET", path: "/admin/deleteusers/{id}", config: adminController.deleteUser },
 
   { method: "GET", path: "/dashboard", config: dashboardController.index },
   { method: "POST", path: "/dashboard/addtraillist", config: dashboardController.addTraillist },

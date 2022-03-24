@@ -1,17 +1,21 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { trailtimeService } from "./trail-time-service.js";
-import { maggie, walking, testTraillists, testTrails, hiking } from "../fixtures.js";
+import { maggie, walking, testTraillists, maggieCredentials,testTrails, hiking } from "../fixtures.js";
 
 suite("trail API tests", () => {
   let user = null;
   let beethovenSonatas = null;
 
   setup(async () => {
-    await trailtimeService.deleteAllTraillists();
-    await trailtimeService.deleteAllUsers();
-    await trailtimeService.deleteAllTrails();
+    trailtimeService.clearAuth();
     user = await trailtimeService.createUser(maggie);
+    await trailtimeService.authenticate(maggieCredentials);
+    await trailtimeService.deleteAllTraillists();
+    await trailtimeService.deleteAllTrails();
+    await trailtimeService.deleteAllUsers();
+    user = await trailtimeService.createUser(maggie);
+    await trailtimeService.authenticate(maggieCredentials);
     walking.userid = user._id;
     beethovenSonatas = await trailtimeService.createTraillist(walking);
   });

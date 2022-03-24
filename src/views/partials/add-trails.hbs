@@ -3,20 +3,32 @@
   <div class="field is-horizontal">
     <div class="field-body">
       <div class="field">
-        <input class="input" type="text" placeholder="Enter trail name" name="title">
+      <input class="input" type="text" placeholder="Enter trail name" name="title">
       </div>
       <div class="field">
-        <input class="input" type="text" placeholder="Enter location" name="location">
+      <input class="input" type="text" placeholder="Enter location" name="location">
       </div>
       <div class="field">
-        <input class="input" type="text" placeholder="Enter type" name="type">
+      <input class="input" type="text" placeholder="Enter type" name="type">
       </div>
       <div class="field">
       <input class="input" type="number" placeholder="Enter latitude" step=".000001" name="latitude">
       </div>
       <div class="field">
       <input class="input" type="number" placeholder="Enter longitude" step=".000001" name="longitude">
-    </div>
+      </div>
+      <div class="field">
+      <div class="control is-expanded">
+      <div class="select is-fullwidth">
+       <select class="select is-fullwidth" name="category">
+        <option disabled selected>Difficulty</option>
+        <option>Easy </option>
+        <option>Medium</option>
+        <option> Hard</option>
+      </select>
+      </div>
+      </div>
+      </div>
     </div>
   </div>
   <button class="button is-primary">Add Trail</button>

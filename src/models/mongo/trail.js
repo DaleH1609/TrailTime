@@ -8,6 +8,7 @@ const trailSchema = new Schema({
   type: String,
   latitude: Number,
   longitude: Number,
+  category: String,
   traillistid: {
     type: Schema.Types.ObjectId,
     ref: "Traillist",

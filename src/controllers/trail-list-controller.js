@@ -37,6 +37,7 @@ export const trailListController = {
         type: request.payload.type,
         latitude: Number(request.payload.latitude),
         longitude: Number(request.payload.longitude),
+        category: request.payload.category,
       };
       await db.trailStore.addTrail(traillist._id, newTrail);
       return h.redirect(`/traillist/${traillist._id}`);

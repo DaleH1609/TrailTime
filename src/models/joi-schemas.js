@@ -28,6 +28,7 @@ export const TrailSpec = Joi.object()
     type: Joi.string().required().example("Walking"),
     latitude: Joi.number().allow("").optional().example(5.32),
     longitude: Joi.number().allow("").optional().example(2.45),
+    category: Joi.string().required().example("Easy"),
     traillistid: IdSpec,
   })
   .label("Trail");
@@ -53,4 +54,11 @@ export const TrailSpec = Joi.object()
   }).label("Trail list Plus");
 
   export const TraillistArraySpec = Joi.array().items(TraillistSpecPlus).label("Trail list Array");
+
+  export const JwtAuth = Joi.object()
+  .keys({
+    success: Joi.boolean().example("true").required(),
+    token: Joi.string().example("eyJhbGciOiJND.g5YmJisIjoiaGYwNTNjAOhE.gCWGmY5-YigQw0DCBo").required(),
+  })
+  .label("JwtAuth");
 

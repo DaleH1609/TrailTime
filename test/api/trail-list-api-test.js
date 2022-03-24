@@ -1,16 +1,20 @@
 import { assert } from "chai";
 import { trailtimeService } from "./trail-time-service.js";
 import { assertSubset } from "../test-utils.js";
-import { maggie, walking, testTraillists } from "../fixtures.js";
+import { maggie, walking, maggieCredentials, testTraillists } from "../fixtures.js";
 
 suite("Trail List API tests", () => {
 
   let user = null;
 
   setup(async () => {
+    trailtimeService.clearAuth();
+    user = await trailtimeService.createUser(maggie);
+    await trailtimeService.authenticate(maggieCredentials);
     await trailtimeService.deleteAllTraillists();
     await trailtimeService.deleteAllUsers();
     user = await trailtimeService.createUser(maggie);
+    await trailtimeService.authenticate(maggieCredentials);
     walking.userid = user._id;
   });
 

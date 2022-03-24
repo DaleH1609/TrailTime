@@ -1,0 +1,12 @@
+{{> menu active="admin"}}
+
+{{#each users}}
+  <div class="box box-link-hover-shadow">
+    <h2 class="title">
+      {{email}}
+      <a href="/admin/deleteusers/{{_id}}" class="button">
+      <i class="fas fa-trash"></i>
+    </a>
+    </h2>
+  </div>
+{{/each}}

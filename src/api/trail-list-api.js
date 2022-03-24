@@ -5,7 +5,9 @@ import { validationError } from "./logger.js";
 
 export const traillistApi = {
     find: {
-        auth: false,
+      auth: {
+        strategy: "jwt",
+      },
         handler: async function (request, h) {
           try {
             const traillists = await db.traillistStore.getAllTraillists();
@@ -21,7 +23,9 @@ export const traillistApi = {
     },
 
   findOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     async handler(request) {
       try {
         const traillist = await db.traillistStore.getTraillistById(request.params.id);
@@ -42,7 +46,9 @@ export const traillistApi = {
 
 
   create: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const traillist = request.payload;
@@ -63,7 +69,9 @@ export const traillistApi = {
   },
 
   deleteOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const traillist = await db.traillistStore.getTraillistById(request.params.id);
@@ -82,7 +90,9 @@ export const traillistApi = {
   },
 
   deleteAll: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         await db.traillistStore.deleteAllTraillists();
