@@ -8,7 +8,8 @@
     "start": "node src/server.js",
     "lint": "./node_modules/.bin/eslint . --ext .js",
     "test": "./node_modules/mocha/bin/mocha --ui tdd test/**/*.js",
-    "dev": "./node_modules/.bin/nodemon  src/server.js"
+    "dev": "./node_modules/.bin/nodemon  src/server.js",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
