@@ -24,6 +24,8 @@ export const webRoutes = [
   { method: "GET", path: "/traillist/{id}", config: trailListController.index },
   { method: "POST", path: "/traillist/{id}/addtrail", config: trailListController.addTrail },
   { method: "GET", path: "/traillist/{id}/deletetrail/{trailid}", config: trailListController.deleteTrail },
+  { method: "POST", path: "/traillist/{id}/uploadimage", config: trailListController.uploadImage },
+  { method: "GET", path: "/traillist/{id}/deleteimage/{imageid}", config: trailListController.deleteImage },
 
   { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
 ];

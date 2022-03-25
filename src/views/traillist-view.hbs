@@ -1,9 +1,18 @@
 {{> menu}}
 
-<section class="section">
+<section class="section columns is-vcentered">
+  <div class="column has-text-centered">
   <div class="title">
-    {{traillist.title}}
+  {{traillist.title}}
   </div>
   {{> list-trails}}
   {{> add-trails}}
+   </div>
+  <div class="column">
+  {{> trail-list-image}}
+<! -- </a> --> 
+   <! --    <a href="/traillist/{{traillist._id}}/deleteimage/{{traillist.img}}" class="button"> --> 
+   <! --    <i class="fas fa-trash"></i> --> 
+ <! --   </a> --> 
+  </div>
 </section>
