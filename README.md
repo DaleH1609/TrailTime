@@ -30,11 +30,11 @@ Release 1 (Tag) contains:
 
 Release 2 (Tag) contains:
 
-Cookie Authentication, Ability to edit user details, Unit testing, Latitude and Longitude, JSON storage
+- Cookie Authentication, Ability to edit user details, Unit testing, Latitude and Longitude, JSON storage
 
 Release 3 (Tag) contains:
 
-Basic admin dashboard, Categories for trail difficulty, OPEN API (Swagger), Mongo database integration, JWT authentication, deployed using Heroic
+- Basic admin dashboard, Categories for trail difficulty, OPEN API (Swagger), Mongo database integration, JWT authentication, deployed using Heroic
 
 Bugs:
 
