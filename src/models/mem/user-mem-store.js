@@ -19,6 +19,13 @@ export const userMemStore = {
     return u;
   },
 
+  async updateUser(user, updatedUser) {
+    user.firstName = updatedUser.firstName;
+    user.lastName = updatedUser.lastName;
+    user.email = updatedUser.email;
+    user.password = updatedUser.password;
+  },
+
   async getUserByEmail(email) {
     let u = users.find((user) => user.email === email);
     if (u === undefined) u = null;

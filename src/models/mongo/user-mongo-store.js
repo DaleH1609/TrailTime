@@ -1,3 +1,4 @@
+import { db } from "../db.js";
 import { User } from "./user.js";
 
 export const userMongoStore = {
@@ -21,6 +22,15 @@ export const userMongoStore = {
     return u;
   },
 
+  async updateUser(updatedUser) {
+    const user = await User.findOne({ _id: updatedUser._id });
+    user.firstName = updatedUser.firstName;
+    user.lastName = updatedUser.lastName;
+    user.email = updatedUser.email;
+    user.password = updatedUser.password;
+    await user.save();
+  },
+
   async getUserByEmail(email) {
     const user = await User.findOne({ email: email }).lean();
     return user;
@@ -38,3 +48,4 @@ export const userMongoStore = {
     await User.deleteMany({});
   }
 };
+ 

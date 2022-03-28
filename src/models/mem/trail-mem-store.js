@@ -41,5 +41,6 @@ export const trailMemStore = {
     trail.type = updatedTrail.type;
     trail.latitude = updatedLatitude.latitude;
     trail.longitude = updatedLongitude.longitude;
+    trail.category = updatedCategory.category;
   },
 };

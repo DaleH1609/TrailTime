@@ -38,6 +38,25 @@ export const accountsController = {
       return h.view("login-view", { title: "Login to Trail Time" });
     },
   },
+  userUpdate: {
+    auth: false,
+    handler: function (request, h) {
+      return h.view("user", { title: "Update details" });
+    },
+  },
+  updateUser: {
+    auth: false,
+    handler: function (request, h) {
+    const updateUser = {
+      firstName: request.payload.firstName,
+      lastName: request.payload.lastName,
+      email: request.payload.email,
+      password: request.payload.password,
+    };
+    db.userStore.updateUser(updateUser);
+    return h.redirect("/dashboard");
+    },
+  },
   login: {
     auth: false,
     validate: {

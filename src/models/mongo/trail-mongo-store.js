@@ -42,8 +42,9 @@ export const trailMongoStore = {
     trail.title = updatedTrail.title;
     trail.location = updatedTrail.location;
     trail.type = updatedTrail.type;
-    trail.latitude = updatedLatitude.latitude;
-    trail.longitude = updatedLongitude.longitude;
+    trail.latitude = updatedTrail.latitude;
+    trail.longitude = updatedTrail.longitude;
+    trail.category = updatedCategory.category
     await trail.save();
   },
 };

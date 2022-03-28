@@ -48,3 +48,4 @@ export const traillistMongoStore = {
     await Traillist.deleteMany({});
   }
 };
+
