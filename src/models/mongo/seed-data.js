@@ -27,9 +27,9 @@ export const seedData = {
           userid: "->users.bart"
         }
       },
-      tracks: {
+      trails: {
         _model : "Trail",
-        track_1 : {
+        trail_1 : {
           title: "The Causeway Coast",
           location: "Co Antrim",
           type: "Walking",

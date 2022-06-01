@@ -1,0 +1,24 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Review</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each reviews}}
+      <tr>
+        <td>
+          {{email}}
+        </td>
+        <td>
+          {{review}}
+        </td>
+        <td>
+          {{rating}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
