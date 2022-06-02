@@ -3,6 +3,7 @@ import Mongoose from "mongoose";
 const { Schema } = Mongoose;
 
 const reviewSchema = new Schema({
+  trail: String,
   review: String,
   rating: Number,
   userid: {

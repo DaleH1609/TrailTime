@@ -1,9 +1,20 @@
 <form action="/review/addReview" method="POST">
   <div class="field">
-    <label class="label">Review</label> <input class="input" type="text" placeholder="Enter Trail title" name="review">
+    <label class="label">Review</label> <input class="input" type="text" placeholder="Enter Trail Name" name="trail">
   </div>
   <div class="field">
-    <label class="label">Rating</label> <input class="input" type="number" placeholder="Enter star rating" name="rating">
+    <label class="label">Review</label> <input class="input" type="text" placeholder="Type review" name="review">
   </div>
+  <div class="select is-fullwidth">
+       <select class="select is-fullwidth" name="rating">
+        <option disabled selected>Rate</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      </div>
+      <br>
   <button class="button is-link">Add Review</button>
 </form>

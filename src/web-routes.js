@@ -4,6 +4,7 @@ import { aboutController } from "./controllers/about-controller.js";
 import { trailListController } from "./controllers/trail-list-controller.js";
 import { adminController } from "./controllers/admin-controller.js";
 import { reviewController } from "./controllers/review-controller.js"
+import { noticeController } from "./controllers/notice-controller.js"
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -15,6 +16,9 @@ export const webRoutes = [
 
   { method: "GET", path: "/review", config: reviewController.index },
   { method: "POST", path: "/review/addReview", config: reviewController.addReview },
+
+  { method: "GET", path: "/notice", config: noticeController.index },
+  { method: "POST", path: "/notice/addNotice", config: noticeController.addNotice },
 
   { method: "GET", path: "/user", config: accountsController.userUpdate },
   { method: "POST", path: "/update", config: accountsController.updateUser },

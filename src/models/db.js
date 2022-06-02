@@ -9,6 +9,7 @@ import { userMongoStore } from "./mongo/user-mongo-store.js";
 import { traillistMongoStore } from "./mongo/trail-list-mongo-store.js";
 import { trailMongoStore } from "./mongo/trail-mongo-store.js";
 import { reviewMongoStore } from "./mongo/review-mongo-store.js";
+import { noticeMongoStore } from "./mongo/notice-mongo-store.js";
 
 
 export const db = {
@@ -16,6 +17,8 @@ export const db = {
   traillistStore: null,
   trailStore: null,
   reviewStore: null,
+  noticeStore: null,
+
 
 init(storeType) {
   switch (storeType) {
@@ -29,6 +32,7 @@ init(storeType) {
         this.traillistStore = traillistMongoStore;
         this.trailStore = trailMongoStore;
         this.reviewStore = reviewMongoStore;
+        this.noticeStore = noticeMongoStore;
         connectMongo();
       break;
     default:

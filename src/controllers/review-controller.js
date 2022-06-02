@@ -14,10 +14,12 @@ export const reviewController = {
 
   addReview: {
     handler: async function (request, h) {
+      const user = await db.userStore.getUserById(request.params.id);
       const newReview = {
+        trail: request.payload.trail,
         review: request.payload.review,
         rating: request.payload.rating,
-        email: request.payload.email
+        user: user
       };
       await db.reviewStore.addReview(newReview);
       return h.redirect("/review");
