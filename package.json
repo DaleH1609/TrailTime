@@ -4,7 +4,11 @@
   "description": "TrailTime: a Hapi/node application for managing Trails in Ireland",
   "main": "src/server.js",
   "type": "module",
+  "engines": {
+    "node": "14.16.0"
+  },
   "scripts": {
+    "build": "webpack --config webpack.config.js",
     "start": "node src/server.js",
     "lint": "./node_modules/.bin/eslint . --ext .js",
     "test": "./node_modules/mocha/bin/mocha --ui tdd test/**/*.js",
