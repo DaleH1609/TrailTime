@@ -18,8 +18,8 @@ export const publicTrailController = {
         pTitle: request.payload.pTitle,
         pLocation: request.payload.pLocation,
         pType: request.payload.pType,
-        pLatitude: Number(request.payload.pLatitude),
-        pLongitude: Number(request.payload.pLongitude),
+        pLatitude: request.payload.pLatitude,
+        pLongitude: request.payload.pLongitude,
         pCategory: request.payload.pCategory,
       };
       await db.publicTrailStore.addPublicTrail(newPublicTrail);

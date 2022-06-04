@@ -6,8 +6,8 @@ const publicTrailSchema = new Schema({
   pTitle: String,
   pLocation: String,
   pType: String,
-  pLatitude: Number,
-  pLongitude: Number,
+  pLatitude: String,
+  pLongitude: String,
   pCategory: String,
   userid: {
     type: Schema.Types.ObjectId,
