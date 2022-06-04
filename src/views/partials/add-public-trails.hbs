@@ -1,0 +1,54 @@
+<form class="box" action="/public/addPublicTrail" method="POST">
+  <label>Enter Trail Details:</label>
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+      <input class="input" type="text" placeholder="Enter trail name" name="pTitle">
+      </div>
+      <div class="field">
+      <input class="input" type="text" placeholder="Enter location" name="pLocation">
+      </div>
+      <div class="field">
+      <input class="input" type="text" placeholder="Enter type" name="pType">
+      </div>
+      <div class="field">
+      <input class="input" type="number" placeholder="Enter latitude" step=".000001" name="pLatitude">
+      </div>
+      <div class="field">
+      <input class="input" type="number" placeholder="Enter longitude" step=".000001" name="pLongitude">
+      </div>
+      <div class="field">
+      <div class="control is-expanded">
+      <div class="select is-fullwidth">
+       <select class="select is-fullwidth" name="pCategory">
+        <option disabled selected>Difficulty</option>
+        <option>Easy </option>
+        <option>Medium</option>
+        <option> Hard</option>
+      </select>
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <button class="button is-primary">Add Trail</button>
+</form>
+<div id="mapid">
+  <script>
+    var mymap = L.map('mapid').setView([54, -9], 6);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoiZGFsZXJzIiwiYSI6ImNsMHNwaGE5YTAwN2kzaWtiMzc4anoxeGYifQ.6lsx81FMux32u8smWZcYhA'
+    }).addTo(mymap);
+    {{#each publicTrails}}
+    L.marker([{{pLatitude}}, {{pLongitude}}]).addTo(mymap);
+    {{/each}}
+  </script>
+    <style>
+    #mapid { height: 360px; }
+  </style>
+

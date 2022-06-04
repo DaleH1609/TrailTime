@@ -5,6 +5,7 @@ import { trailListController } from "./controllers/trail-list-controller.js";
 import { adminController } from "./controllers/admin-controller.js";
 import { reviewController } from "./controllers/review-controller.js"
 import { noticeController } from "./controllers/notice-controller.js"
+import { publicTrailController } from "./controllers/public-trail-controller.js"
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -19,6 +20,9 @@ export const webRoutes = [
 
   { method: "GET", path: "/notice", config: noticeController.index },
   { method: "POST", path: "/notice/addNotice", config: noticeController.addNotice },
+
+  { method: "GET", path: "/public", config: publicTrailController.index },
+  { method: "POST", path: "/public/addPublicTrail", config: publicTrailController.addPublicTrail },
 
   { method: "GET", path: "/user", config: accountsController.userUpdate },
   { method: "POST", path: "/update", config: accountsController.updateUser },

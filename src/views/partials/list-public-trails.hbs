@@ -1,0 +1,37 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Trail name</th>
+      <th>Location</th>
+      <th>Type</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Difficulty</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each publicTrails}}
+      <tr>
+        <td>
+          {{pTitle}}
+        </td>
+        <td>
+          {{pLocation}}
+        </td>
+        <td>
+          {{pType}}
+        </td>
+        <td>
+          {{pLatitude}}
+        </td>
+        <td>
+          {{pLongitude}}
+        </td>
+        <td>
+          {{pCategory}}
+        </td>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
